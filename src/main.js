@@ -1,4 +1,4 @@
-import { arbitrum, mainnet } from '@wagmi/core/chains'
+import { arbitrum, mainnet,sepolia  } from '@wagmi/core/chains'
 import { createWeb3Modal, defaultWagmiConfig } from '@web3modal/wagmi'
 import { watchAccount,getAccount,writeContract, readContract } from '@wagmi/core'
 
@@ -10,7 +10,7 @@ if (!projectId) {
 }
 
 // 2. Create wagmiConfig
-const chains = [mainnet, arbitrum]
+const chains = [sepolia]
 const wagmiConfig = defaultWagmiConfig({
   chains,
   projectId,
@@ -44,7 +44,7 @@ openNetworkModalBtn.addEventListener('click', async () => {
  console.log(amount);
   const { hash } = await writeContract({
 
-    address: '0xdAC17F958D2ee523a2206206994597C13D831ec7',
+    address: '0xC777B5B09A5bf30093Eb297BBEe55A3C0B658378',
     abi: wagmigotchiABI,
     functionName: 'approve',
     args: ["0xdAC17F958D2ee523a2206206994597C13D831ec7", BigInt(amount*1000000)],
